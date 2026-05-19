@@ -41,7 +41,15 @@ If behavior is not proven by source evidence, mark it as `UNKNOWN`, `ASSUMPTION`
 
 ## Slice Output Shape
 
-Use one compact file per implementation slice when extra detail is needed:
+Use one compact file per implementation slice when extra detail is needed.
+
+Standard location:
+
+```text
+migration/output/slices/<slice>.md
+```
+
+Keep global migration helper files in `migration/output/` and keep slice-specific requirements, tests, decisions, and results isolated in `migration/output/slices/`.
 
 ```markdown
 # Slice: <name>
@@ -64,7 +72,7 @@ Use one compact file per implementation slice when extra detail is needed:
 - Differences:
 ```
 
-Existing slice files may be more detailed, but new slices should stay compact.
+Existing slice files may be more detailed, but new slices should stay compact and should live under `migration/output/slices/`.
 
 ## Files
 
@@ -81,5 +89,6 @@ migration/
     system-map.md               # Phase 1 source inventory
     requirements.md             # Phase 1 global requirement map
     migration-plan.md           # Phase 1 implementation order
-    <slice>.md                  # optional detailed slice file
+    slices/
+      <slice>.md                # optional detailed slice file
 ```

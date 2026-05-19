@@ -232,6 +232,55 @@ Then:
 curl http://127.0.0.1:8000/
 ```
 
+## Expose With Nginx On A Public IP
+
+Use this when the app is running on a public VM and you want Nginx to forward public HTTP traffic to the local orchestrator on port `8000`.
+
+Install Nginx on the host if needed:
+
+```bash
+sudo apt update
+sudo apt install nginx
+```
+
+Start the app first with Docker Compose or the local Gradle install. Confirm the local health check works:
+
+```bash
+curl http://127.0.0.1:8000/
+```
+
+Then configure Nginx:
+
+```bash
+sudo ./scripts/configure-nginx-public-ip.sh --server-name <public-ip>
+```
+
+The script writes an Nginx site named `synapses-v2`, proxies requests to `http://127.0.0.1:8000`, validates the Nginx config, and reloads Nginx.
+
+Optional values:
+
+```bash
+sudo ./scripts/configure-nginx-public-ip.sh \
+  --server-name <public-ip-or-domain> \
+  --app-port 8000 \
+  --listen-port 80 \
+  --open-firewall
+```
+
+If the machine uses a cloud firewall or security group, allow inbound TCP `80`. After Nginx reloads, check the public HTTP endpoint:
+
+```bash
+curl http://<public-ip>/
+```
+
+For Slack, configure an HTTPS URL with a valid SSL certificate. Slack verifies the SSL certificate during URL verification, so use a DNS name with TLS, or use a tunnel such as ngrok or Cloudflare Tunnel for temporary development.
+
+The Slack request URL path remains:
+
+```text
+https://<public-host>/slack/events
+```
+
 ## Configure Slack
 
 In the Slack app configuration:
