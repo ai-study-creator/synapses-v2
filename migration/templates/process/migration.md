@@ -6,15 +6,23 @@ This migration moves the source system at `<source-repository>` into the target 
 
 The migration is behavior-preserving. The implementation technology may change, but externally observable behavior must stay the same unless a difference is recorded in `open-points.md` as an approved `DEVIATION`.
 
-## Two-Phase Workflow
+## Migration Workflow
 
-First map the whole source system, then implement in planned order.
+First define the target technical direction, then map the whole source system, then implement in planned order.
+
+### Phase 0: Technical Migration Guidance
+
+1. Read `migration/init.md` for target runtime, language, framework, build, deployment, and constraint guidance.
+2. Generate `migration/output/stack/tech-stack-source.md` from the source repository.
+3. Generate `migration/tech-stack-migrated.md` with source-to-target replacement decisions.
+4. Record unresolved or risky technical decisions in `open-points.md`.
+5. Approve `migration/tech-stack-migrated.md` before generating detailed requirements, slice specs, or target implementation.
 
 ### Phase 1: Full Discovery And Spec Map
 
 1. Read the whole source repository.
 2. Capture system structure in `migration/output/system-map.md`.
-3. Capture the source technical stack in `migration/output/stack/tech-stack-source.md`.
+3. Use the approved `migration/tech-stack-migrated.md` as target technical guidance.
 4. Capture all source-backed requirements in `migration/output/requirements.md`.
 5. Capture implementation order and dependencies in `migration/output/migration-plan.md`.
 6. Record unknowns, risks, assumptions, and approved deviations in `open-points.md`.
@@ -75,7 +83,7 @@ migration/
     migration-plan.md           # Phase 1 implementation order
     behavior-comparison.md      # source vs target behavior comparison
     stack/
-      tech-stack-source.md      # Phase 1 source technical stack inventory
+      tech-stack-source.md      # Phase 0 source technical stack inventory
     slices/
       <slice>.md                # optional detailed slice file
   open-spec/

@@ -13,8 +13,9 @@ Use these templates when starting or repeating a migration so each run keeps the
 1. Copy the needed template into the matching migration location.
 2. Replace placeholders such as `<source-repository>`, `<target-repository>`, `<slice-name>`, and `<date>`.
 3. Keep generated artifact files close to the template shape unless the migration explicitly needs an approved extension.
-4. Put slice-specific output files under `migration/output/slices/`.
-5. Put stack inventory output files under `migration/output/stack/`.
+4. Generate and approve `migration/tech-stack-migrated.md` before detailed requirements, slice specs, or implementation.
+5. Put slice-specific output files under `migration/output/slices/`.
+6. Put stack inventory output files under `migration/output/stack/`.
 
 ## Artifact Map
 
