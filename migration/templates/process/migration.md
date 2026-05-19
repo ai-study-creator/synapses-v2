@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This migration moves the source system at `/home/leonardo/workspaces/synapses` into the target repository at `/home/leonardo/workspaces/synapses-v2`.
+This migration moves the source system at `<source-repository>` into the target repository at `<target-repository>`.
 
 The migration is behavior-preserving. The implementation technology may change, but externally observable behavior must stay the same unless a difference is recorded in `open-points.md` as an approved `DEVIATION`.
 
@@ -56,29 +56,6 @@ migration/output/slices/<slice>.md
 
 Keep global migration helper files in `migration/output/` and keep slice-specific requirements, tests, decisions, and results isolated in `migration/output/slices/`.
 
-```markdown
-# Slice: <name>
-
-## Source Evidence
-- file:line - behavior
-
-## Requirements
-- REQ-001: behavior
-
-## Tests
-- TEST-001 -> REQ-001
-
-## Decisions / Open Points
-- UNKNOWN/RISK/DEVIATION:
-
-## Result
-- Implemented:
-- Verified:
-- Differences:
-```
-
-Existing slice files may be more detailed, but new slices should stay compact and should live under `migration/output/slices/`.
-
 ## Files
 
 ```text
@@ -89,14 +66,19 @@ migration/
   open-points.md                # unknowns, risks, assumptions, deviations, blockers
   requirement-test-matrix.md    # requirement-to-test status
   migration-log.md              # short progress log
+  tech-stack-migrated.md        # source-to-target stack replacement decisions
   skills/
     ai-*.md                     # optional AI guidance
   output/
     system-map.md               # Phase 1 source inventory
     requirements.md             # Phase 1 global requirement map
     migration-plan.md           # Phase 1 implementation order
+    behavior-comparison.md      # source vs target behavior comparison
     stack/
       tech-stack-source.md      # Phase 1 source technical stack inventory
     slices/
       <slice>.md                # optional detailed slice file
+  open-spec/
+    README.md                   # behavior spec pack overview
+    <order>-<feature>.feature   # human-readable behavior specs
 ```

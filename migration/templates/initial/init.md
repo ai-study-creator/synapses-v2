@@ -1,16 +1,16 @@
 # Migration Initialization
 
 ```text
-Target repository: /home/leonardo/workspaces/synapses-v2
-Source repository/system: /home/leonardo/workspaces/synapses
-Migration folder in target repository: /home/leonardo/workspaces/synapses-v2/migration/
-Output folder: /home/leonardo/workspaces/synapses-v2/migration/output/
-Slice output folder: /home/leonardo/workspaces/synapses-v2/migration/output/slices/
-Stack output folder: /home/leonardo/workspaces/synapses-v2/migration/output/stack/
-Migration owner:
-Reviewers:
-Target branch:
-Source access method:
+Target repository: <target-repository>
+Source repository/system: <source-repository>
+Migration folder in target repository: <target-repository>/migration/
+Output folder: <target-repository>/migration/output/
+Slice output folder: <target-repository>/migration/output/slices/
+Stack output folder: <target-repository>/migration/output/stack/
+Migration owner: <owner>
+Reviewers: <reviewers>
+Target branch: <target-branch>
+Source access method: <local-path / git-url / archive / other>
 ```
 
 ## Current Agreement
@@ -31,4 +31,4 @@ Source access method:
 2. Extract the technical requirements of the source project into Markdown.
 3. Include programming languages, runtimes, frameworks, important libraries, build tools, package managers, service dependencies, integrations, and notable configuration mechanisms.
 4. Write the result to `migration/output/stack/tech-stack-source.md`.
-5. Use `migration/templates/` as the layout source for newly generated migration files.
+5. Record any missing access, unclear ownership, or unavailable source evidence in `open-points.md`.
