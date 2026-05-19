@@ -14,9 +14,10 @@ First map the whole source system, then implement in planned order.
 
 1. Read the whole source repository.
 2. Capture system structure in `migration/output/system-map.md`.
-3. Capture all source-backed requirements in `migration/output/requirements.md`.
-4. Capture implementation order and dependencies in `migration/output/migration-plan.md`.
-5. Record unknowns, risks, assumptions, and approved deviations in `open-points.md`.
+3. Capture the source technical stack in `migration/output/stack/tech-stack-source.md`.
+4. Capture all source-backed requirements in `migration/output/requirements.md`.
+5. Capture implementation order and dependencies in `migration/output/migration-plan.md`.
+6. Record unknowns, risks, assumptions, and approved deviations in `open-points.md`.
 
 ### Phase 2: Implementation
 
@@ -89,6 +90,8 @@ migration/
     system-map.md               # Phase 1 source inventory
     requirements.md             # Phase 1 global requirement map
     migration-plan.md           # Phase 1 implementation order
+    stack/
+      tech-stack-source.md      # Phase 1 source technical stack inventory
     slices/
       <slice>.md                # optional detailed slice file
 ```
